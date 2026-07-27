@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="QR Code Scanner"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    <!-- Scanner Frame -->
+    <FrameLayout
+        android:id="@+id/scannerFrame"
+        android:layout_width="280dp"
+        android:layout_height="280dp"
+        android:background="@drawable/scannner_border"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Camera Preview -->
+        <androidx.camera.view.PreviewView
+            android:id="@+id/previewView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+        </androidx.camera.view.PreviewView>
+
+
+        <ImageButton
+            android:id="@+id/btnTorch"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="16dp"
+            android:layout_gravity="bottom|end"
+            android:background="@android:color/transparent"
+            android:src="@drawable/baseline_flashlight_on_24"
+            android:contentDescription="Flashlight"
+            android:tint="@android:color/white"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+        <ImageButton
+            android:id="@+id/btnGallery"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_gravity="bottom|start"
+            android:layout_margin="12dp"
+            android:background="#66000000"
+            android:padding="8dp"
+            android:src="@drawable/outline_add_photo_alternate_24"
+            android:tint="@color/white"
+            android:contentDescription="Gallery"
+            app:layout_constraintTop_toTopOf="@id/scannerFrame"
+            app:layout_constraintStart_toStartOf="@id/scannerFrame"
+            app:layout_constraintRight_toRightOf="@id/btnTorch"/>
+
+        <!-- Scanner Line -->
+
+        <View
+            android:id="@+id/scannerLine"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#FF0000"
+            android:layout_gravity="top"/>
+    </FrameLayout>
+
+    <!-- Result Title -->
+    <TextView
+        android:id="@+id/tvResultLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Scanned Result"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/scannerFrame"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="16dp"/>
+
+    <!-- Result -->
+    <TextView
+        android:id="@+id/tvResult"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="No QR Code Scanned"
+        android:padding="12dp"
+        android:layout_margin="16dp"
+        android:background="@android:drawable/editbox_background"
+        app:layout_constraintTop_toBottomOf="@id/tvResultLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Button -->
+    <Button
+        android:id="@+id/btnScanAgain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Scan Again"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/tvResult"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
